@@ -287,7 +287,7 @@ export function AnalystNote({ children }: { children: React.ReactNode }) {
       <div className="text-[9px] font-code text-amber-400/60 tracking-[0.2em] uppercase mb-1.5">
         ANALYST NOTE
       </div>
-      <div className="text-[12px] font-code text-amber-200/70 leading-relaxed italic">
+      <div className="text-[13px] font-code text-amber-200/80 leading-relaxed italic">
         {children}
       </div>
     </div>
@@ -301,11 +301,11 @@ export function AnalystNote({ children }: { children: React.ReactNode }) {
 export function StatRow({ label, value, color }: { label: string; value: string; color?: string }) {
   return (
     <div className="flex items-baseline gap-3 py-1.5 border-b border-border/50 last:border-0">
-      <span className="text-[10px] font-code text-muted-foreground/50 tracking-widest uppercase w-28 flex-shrink-0">
+      <span className="text-[11px] font-code text-muted-foreground/70 tracking-widest uppercase w-28 flex-shrink-0">
         {label}
       </span>
       <span
-        className="text-[12px] font-code text-foreground/80 flex-1"
+        className="text-[13px] font-code text-foreground flex-1"
         style={color ? { color } : {}}
       >
         {value}

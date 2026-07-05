@@ -40,7 +40,7 @@ export default function WeaponsPage() {
         <h1 className="text-2xl font-bold font-display tracking-tight text-foreground mb-1">
           EQUIPMENT REGISTRY
         </h1>
-        <p className="text-[12px] font-code text-muted-foreground/60">
+        <p className="text-[13px] font-code text-muted-foreground/80">
           Weapons, tools, enhancements, and compounds used by Silencer operatives. Agency-exclusive items are marked.
         </p>
       </div>
@@ -104,7 +104,7 @@ export default function WeaponsPage() {
                   <div className="mb-2">
                     <FactionBadge factionId={item.ownerAgency} size="sm" />
                   </div>
-                  <p className="text-[12px] font-code text-muted-foreground/75 leading-relaxed">
+                  <p className="text-[13px] font-code text-muted-foreground leading-relaxed">
                     {item.description}
                   </p>
                 </LoreCard>

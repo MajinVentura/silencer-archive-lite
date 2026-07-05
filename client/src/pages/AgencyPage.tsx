@@ -111,19 +111,19 @@ export default function AgencyPage() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
                 <div className="terminal-panel border border-border px-3 py-2">
                   <div className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase mb-1">SPECIAL ABILITY</div>
-                  <div className="text-[11px] font-code text-foreground/80">{agency.specialAbility.split("—")[0].trim()}</div>
+                  <div className="text-[12px] font-code text-foreground">{agency.specialAbility.split("—")[0].trim()}</div>
                 </div>
                 <div className="terminal-panel border border-border px-3 py-2">
                   <div className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase mb-1">FOUNDED</div>
-                  <div className="text-[11px] font-code text-foreground/80">{agency.founded}</div>
+                  <div className="text-[12px] font-code text-foreground">{agency.founded}</div>
                 </div>
                 <div className="terminal-panel border border-border px-3 py-2">
                   <div className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase mb-1">KNOWN OPERATIVES</div>
-                  <div className="text-[11px] font-code" style={{ color: agency.color }}>{agency.knownOperatives.length} ON RECORD</div>
+                  <div className="text-[12px] font-code" style={{ color: agency.color }}>{agency.knownOperatives.length} ON RECORD</div>
                 </div>
                 <div className="terminal-panel border border-border px-3 py-2">
                   <div className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase mb-1">EQUIPMENT</div>
-                  <div className="text-[11px] font-code" style={{ color: agency.color }}>{agency.equipment.length} ITEMS</div>
+                  <div className="text-[12px] font-code" style={{ color: agency.color }}>{agency.equipment.length} ITEMS</div>
                 </div>
               </div>
 
@@ -174,7 +174,7 @@ export default function AgencyPage() {
               classification="CANON"
               accentFaction={agency.id}
             >
-              <p className="text-[12px] font-code text-muted-foreground/80 leading-relaxed">
+              <p className="text-[13px] font-code text-muted-foreground leading-relaxed">
                 {agency.canonBio}
               </p>
             </LoreCard>
@@ -186,7 +186,7 @@ export default function AgencyPage() {
               accentFaction={agency.id}
             >
               {agency.expandedBio.split("\n\n").map((para, i) => (
-                <p key={i} className="text-[12px] font-code text-muted-foreground/75 leading-relaxed mb-3 last:mb-0">
+                <p key={i} className="text-[13px] font-code text-muted-foreground leading-relaxed mb-3 last:mb-0">
                   {para}
                 </p>
               ))}
@@ -195,12 +195,12 @@ export default function AgencyPage() {
             {/* Structure & Doctrine */}
             <div className="grid md:grid-cols-2 gap-4">
               <LoreCard title="ORGANIZATIONAL STRUCTURE" classification="EXPANDED" accentFaction={agency.id}>
-                <p className="text-[12px] font-code text-muted-foreground/75 leading-relaxed">
+                <p className="text-[13px] font-code text-muted-foreground leading-relaxed">
                   {agency.structure}
                 </p>
               </LoreCard>
               <LoreCard title="OPERATIONAL DOCTRINE" classification="EXPANDED" accentFaction={agency.id}>
-                <p className="text-[12px] font-code text-muted-foreground/75 leading-relaxed italic">
+                <p className="text-[13px] font-code text-muted-foreground leading-relaxed italic">
                   "{agency.doctrine}"
                 </p>
               </LoreCard>
@@ -251,7 +251,7 @@ export default function AgencyPage() {
                       className="w-0.5 flex-shrink-0 rounded-full"
                       style={{ backgroundColor: `${agency.color}40` }}
                     />
-                    <p className="text-[11px] font-code text-muted-foreground/60 leading-relaxed italic">
+                    <p className="text-[13px] font-code text-muted-foreground/80 leading-relaxed italic">
                       {legend}
                     </p>
                   </div>
@@ -287,7 +287,7 @@ export default function AgencyPage() {
                   className="border-l-2 px-4 py-3 bg-card/30"
                   style={{ borderLeftColor: agency.color }}
                 >
-                  <pre className="text-[11px] font-code text-muted-foreground/60 leading-relaxed whitespace-pre-wrap">
+                  <pre className="text-[13px] font-code text-muted-foreground/80 leading-relaxed whitespace-pre-wrap">
                     {agency.propaganda}
                   </pre>
                 </div>
@@ -299,7 +299,7 @@ export default function AgencyPage() {
         {/* OPERATIVES TAB */}
         {activeTab === "operatives" && (
           <div className="space-y-4 max-w-3xl animate-entry">
-            <div className="text-[11px] font-code text-muted-foreground/50 leading-relaxed mb-4">
+            <div className="text-[13px] font-code text-muted-foreground/80 leading-relaxed mb-4">
               The following operative records were recovered from intercepted intelligence files. Identities are codename-only. Real identities are unknown or classified.
             </div>
             {agency.knownOperatives.map((op) => (
@@ -323,14 +323,14 @@ export default function AgencyPage() {
                   )}
                 </div>
                 <div className="mt-3 pt-3 border-t border-border/50">
-                  <p className="text-[12px] font-code text-muted-foreground/75 leading-relaxed">
+                  <p className="text-[13px] font-code text-muted-foreground leading-relaxed">
                     {op.bio}
                   </p>
                 </div>
                 {op.notableActions && (
                   <div className="mt-3">
                     <div className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase mb-1.5">NOTABLE ACTIONS</div>
-                    <p className="text-[11px] font-code text-muted-foreground/60 leading-relaxed">
+                    <p className="text-[13px] font-code text-muted-foreground/80 leading-relaxed">
                       {op.notableActions}
                     </p>
                   </div>
@@ -343,7 +343,7 @@ export default function AgencyPage() {
         {/* RELATIONSHIPS TAB */}
         {activeTab === "relationships" && (
           <div className="space-y-3 max-w-3xl animate-entry">
-            <div className="text-[11px] font-code text-muted-foreground/50 leading-relaxed mb-4">
+            <div className="text-[13px] font-code text-muted-foreground/80 leading-relaxed mb-4">
               Inter-agency relationships as assessed by archive analysts. Status designations are approximate — all agency relationships are subject to change without notice.
             </div>
             {agency.relationships.map((rel) => {
@@ -364,7 +364,7 @@ export default function AgencyPage() {
                     )}
                     <RelationshipBadge status={rel.status} />
                   </div>
-                  <p className="text-[12px] font-code text-muted-foreground/70 leading-relaxed">
+                  <p className="text-[13px] font-code text-muted-foreground/90 leading-relaxed">
                     {rel.note}
                   </p>
                 </div>
@@ -376,8 +376,8 @@ export default function AgencyPage() {
         {/* SECRETS TAB */}
         {activeTab === "secrets" && (
           <div className="max-w-3xl animate-entry">
-            <div className="text-[11px] font-code text-muted-foreground/50 leading-relaxed mb-4">
-              The following record contains intelligence that the agency in question has actively suppressed. Access is restricted. Analyst clearance assumed.
+            <div className="text-[13px] font-code text-muted-foreground/80 leading-relaxed mb-4">
+              The following record contains intelligence that the agency in question has actively suppressed. These are expanded lore entries — not real access restrictions.
             </div>
             <LoreCard
               title="SECRET HISTORY — CLASSIFIED RECORD"
@@ -385,7 +385,7 @@ export default function AgencyPage() {
               accentFaction={agency.id}
             >
               {agency.secretHistory.split("\n\n").map((para, i) => (
-                <p key={i} className="text-[12px] font-code text-muted-foreground/75 leading-relaxed mb-3 last:mb-0">
+                <p key={i} className="text-[13px] font-code text-muted-foreground leading-relaxed mb-3 last:mb-0">
                   {para}
                 </p>
               ))}
@@ -415,7 +415,7 @@ export default function AgencyPage() {
         {/* EQUIPMENT TAB */}
         {activeTab === "equipment" && (
           <div className="space-y-4 max-w-3xl animate-entry">
-            <div className="text-[11px] font-code text-muted-foreground/50 leading-relaxed mb-4">
+            <div className="text-[13px] font-code text-muted-foreground/80 leading-relaxed mb-4">
               Equipment records for {agency.name} operatives. Agency-exclusive items are marked. General equipment available to all agencies is documented in the Equipment Registry.
             </div>
             {agency.equipment.map((item) => (
@@ -426,7 +426,7 @@ export default function AgencyPage() {
                 accentFaction={agency.id}
                 tags={[item.type, item.agencyExclusive ? "AGENCY EXCLUSIVE" : "GENERAL"]}
               >
-                <p className="text-[12px] font-code text-muted-foreground/75 leading-relaxed">
+                <p className="text-[13px] font-code text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
               </LoreCard>

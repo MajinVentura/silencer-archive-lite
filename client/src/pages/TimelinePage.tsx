@@ -25,7 +25,7 @@ export default function TimelinePage() {
         <h1 className="text-2xl font-bold font-display tracking-tight text-foreground mb-1">
           COLONY TIMELINE
         </h1>
-        <p className="text-[12px] font-code text-muted-foreground/60">
+        <p className="text-[13px] font-code text-muted-foreground/80">
           A chronological record of events in the Arsia Mons colony. Canon events are drawn from the original game source. Expanded records represent intelligence reconstructed from recovered documents.
         </p>
       </div>
@@ -99,7 +99,7 @@ export default function TimelinePage() {
                       <h3 className="text-[13px] font-display font-bold text-foreground/90 mb-1">
                         {entry.title}
                       </h3>
-                      <p className="text-[11px] font-code text-muted-foreground/65 leading-relaxed">
+                      <p className="text-[13px] font-code text-muted-foreground/85 leading-relaxed">
                         {entry.summary}
                       </p>
 
@@ -115,7 +115,7 @@ export default function TimelinePage() {
                       {/* Expanded detail */}
                       {expandedId === entry.id && (
                         <div className="mt-3 pt-3 border-t border-border animate-decrypt">
-                          <p className="text-[12px] font-code text-muted-foreground/75 leading-relaxed mb-3">
+                          <p className="text-[13px] font-code text-muted-foreground leading-relaxed mb-3">
                             {entry.detail}
                           </p>
                           {entry.tags.length > 0 && (

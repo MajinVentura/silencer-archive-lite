@@ -40,17 +40,17 @@ function AgencyQuickCard({ agency }: { agency: typeof agencies[0] }) {
       >
         <div className="flex items-start justify-between gap-2 mb-2">
           <div
-            className="text-[13px] font-bold font-display tracking-wide"
+            className="text-[14px] font-bold font-display tracking-wide"
             style={{ color: agency.color }}
           >
             {agency.name.toUpperCase()}
           </div>
           <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/40 flex-shrink-0 mt-0.5" />
         </div>
-        <div className="text-[10px] font-code text-muted-foreground/50 tracking-widest uppercase mb-2">
+        <div           className="text-[10px] font-code text-muted-foreground/60 tracking-widest uppercase mb-2">
           {agency.codename}
         </div>
-        <p className="text-[11px] font-code text-muted-foreground/70 leading-relaxed line-clamp-2">
+        <p           className="text-[12px] font-code text-muted-foreground leading-relaxed line-clamp-2">
           {agency.tagline}
         </p>
         <div className="flex flex-wrap gap-1 mt-2">
@@ -82,10 +82,10 @@ function RecentTimelineEntry({ entry }: { entry: typeof timeline[0] }) {
           </span>
           <ClassificationStamp classification={entry.classification} />
         </div>
-        <div className="text-[12px] font-display font-medium text-foreground/80 leading-tight">
+        <div         className="text-[13px] font-display font-medium text-foreground leading-tight">
           {entry.title}
         </div>
-        <p className="text-[11px] font-code text-muted-foreground/60 mt-0.5 leading-relaxed line-clamp-2">
+        <p           className="text-[12px] font-code text-muted-foreground/80 mt-0.5 leading-relaxed line-clamp-2">
           {entry.summary}
         </p>
       </div>
@@ -121,11 +121,11 @@ export default function Home() {
           <div className="text-[13px] font-code text-muted-foreground/60 tracking-[0.15em] uppercase mb-6">
             THE ARSIA MONS INTELLIGENCE ARCHIVE
           </div>
-          <div className="max-w-2xl">
+          <div className="max-w-2xl mt-4">
             {OPENING_STATEMENT.split("\n\n").map((para, i) => (
               <p
                 key={i}
-                className="text-[12px] font-code text-muted-foreground/70 leading-relaxed mb-3"
+                className="text-[13px] font-code text-muted-foreground leading-relaxed mb-3"
               >
                 {para}
               </p>
@@ -194,7 +194,7 @@ export default function Home() {
             </div>
             <ClassificationStamp classification="CANON" />
           </div>
-          <p className="text-[11px] font-code text-muted-foreground/60 leading-relaxed mb-5">
+          <p className="text-[13px] font-code text-muted-foreground leading-relaxed mb-5">
             Five competing agencies operate within the Arsia Mons colony. Each sends agents — called Silencers — into the field to hack government terminals and steal secrets. Their origins, methods, and true objectives differ radically. Their conflict defines the colony's political reality.
           </p>
           <div className="grid sm:grid-cols-2 gap-3">
@@ -254,35 +254,35 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Alerts */}
+          {/* Lore Status */}
           <div className="border-t border-border pt-4 mb-4">
             <div className="text-[9px] font-code text-muted-foreground/40 tracking-[0.2em] uppercase mb-3">
-              ACTIVE ALERTS
+              ARCHIVE STATUS
             </div>
             <div className="space-y-2">
               <div className="flex items-start gap-2 p-2 bg-red-950/20 border border-red-900/30">
                 <Zap className="w-3 h-3 text-red-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-[10px] font-code text-red-400 font-bold tracking-wider">CLEANSING PROTOCOL ACTIVE</div>
-                  <div className="text-[10px] font-code text-muted-foreground/60 mt-0.5">Government elimination order in effect. All agency operatives at risk.</div>
+                  <div className="text-[11px] font-code text-red-400 font-bold tracking-wider">IN-WORLD: CLEANSING PROTOCOL</div>
+                  <div className="text-[11px] font-code text-muted-foreground/70 mt-0.5">The colony government has issued elimination orders. This is the lore setting of the archive.</div>
                 </div>
               </div>
               <div className="flex items-start gap-2 p-2 bg-amber-950/20 border border-amber-900/30">
-                <Shield className="w-3 h-3 text-amber-400 flex-shrink-0 mt-0.5" />
+                <FileText className="w-3 h-3 text-amber-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-[10px] font-code text-amber-400 font-bold tracking-wider">
-                    {lockedFiles.length} FILES LOCKED
+                  <div className="text-[11px] font-code text-amber-400 font-bold tracking-wider">
+                    {lockedFiles.length} ENCRYPTED LORE ENTRIES
                   </div>
-                  <div className="text-[10px] font-code text-muted-foreground/60 mt-0.5">Encrypted records require analyst clearance to access.</div>
+                  <div className="text-[11px] font-code text-muted-foreground/70 mt-0.5">Some classified files contain hidden text — hover over blacked-out passages to reveal them.</div>
                 </div>
               </div>
               <div className="flex items-start gap-2 p-2 bg-violet-950/20 border border-violet-900/30">
                 <Eye className="w-3 h-3 text-violet-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-[10px] font-code text-violet-400 font-bold tracking-wider">
-                    {unverifiedConspiracies.length} UNVERIFIED THEORIES
+                  <div className="text-[11px] font-code text-violet-400 font-bold tracking-wider">
+                    {unverifiedConspiracies.length} OPEN CONSPIRACY THREADS
                   </div>
-                  <div className="text-[10px] font-code text-muted-foreground/60 mt-0.5">Open conspiracy threads awaiting confirmation.</div>
+                  <div className="text-[11px] font-code text-muted-foreground/70 mt-0.5">Unresolved mysteries in the Conspiracies section — intentionally left unanswered.</div>
                 </div>
               </div>
             </div>

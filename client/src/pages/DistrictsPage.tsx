@@ -17,7 +17,7 @@ export default function DistrictsPage() {
         <h1 className="text-2xl font-bold font-display tracking-tight text-foreground mb-1">
           COLONY DISTRICTS
         </h1>
-        <p className="text-[12px] font-code text-muted-foreground/60">
+        <p className="text-[13px] font-code text-muted-foreground/80">
           Geographic and administrative divisions of the Arsia Mons colony. Each district has its own power structure, population, and history of conflict.
         </p>
       </div>
@@ -87,7 +87,7 @@ export default function DistrictsPage() {
               {/* Description */}
               <LoreCard title="DISTRICT RECORD" classification={selected.classification}>
                 {selected.description.split("\n\n").map((para, i) => (
-                  <p key={i} className="text-[12px] font-code text-muted-foreground/75 leading-relaxed mb-3 last:mb-0">
+                  <p key={i} className="text-[13px] font-code text-muted-foreground leading-relaxed mb-3 last:mb-0">
                     {para}
                   </p>
                 ))}
@@ -97,7 +97,7 @@ export default function DistrictsPage() {
               {selected.expandedDescription && (
                 <LoreCard title="EXPANDED INTELLIGENCE" classification="EXPANDED">
                   {selected.expandedDescription.split("\n\n").map((para, i) => (
-                    <p key={i} className="text-[12px] font-code text-muted-foreground/75 leading-relaxed mb-3 last:mb-0">
+                    <p key={i} className="text-[13px] font-code text-muted-foreground leading-relaxed mb-3 last:mb-0">
                       {para}
                     </p>
                   ))}
@@ -114,7 +114,7 @@ export default function DistrictsPage() {
                     {selected.knownLocations.map((loc) => (
                       <div key={loc} className="flex gap-3 px-4 py-3 border border-border/50 bg-card/30">
                         <div className="w-0.5 flex-shrink-0 rounded-full bg-border" />
-                        <p className="text-[11px] font-code text-muted-foreground/60 leading-relaxed">
+                        <p className="text-[13px] font-code text-muted-foreground/80 leading-relaxed">
                           {loc}
                         </p>
                       </div>
@@ -128,7 +128,7 @@ export default function DistrictsPage() {
                 <LoreCard title="DISTRICT RUMORS — UNVERIFIED" classification="RUMOR">
                   <ul className="space-y-2">
                     {selected.rumors.map((r, i) => (
-                      <li key={i} className="text-[12px] font-code text-muted-foreground/75 leading-relaxed italic">
+                      <li key={i} className="text-[13px] font-code text-muted-foreground leading-relaxed italic">
                         • {r}
                       </li>
                     ))}

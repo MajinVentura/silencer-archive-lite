@@ -31,8 +31,8 @@ export default function FilesPage() {
         <h1 className="text-2xl font-bold font-display tracking-tight text-foreground mb-1">
           CLASSIFIED FILES
         </h1>
-        <p className="text-[12px] font-code text-muted-foreground/60">
-          Recovered intelligence documents. Encrypted files require analyst clearance. Click the lock icon to decrypt.
+        <p className="text-[13px] font-code text-muted-foreground/80">
+          Recovered intelligence documents. Some files contain hidden text — click DECRYPT to reveal blurred lore passages.
         </p>
       </div>
 
@@ -98,7 +98,7 @@ export default function FilesPage() {
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[11px] font-display font-bold tracking-wide text-foreground/80 leading-tight mb-0.5">
+                    <div className="text-[13px] font-display font-bold tracking-wide text-foreground leading-tight mb-0.5">
                       {file.title}
                     </div>
                     <div className="flex items-center gap-1.5 flex-wrap">
@@ -151,7 +151,7 @@ export default function FilesPage() {
                 <div className="flex items-center gap-3 flex-wrap">
                   <div>
                     <span className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase">AUTHOR: </span>
-                    <span className="text-[10px] font-code text-muted-foreground/70">{selected.author}</span>
+                    <span className="text-[12px] font-code text-muted-foreground/80">{selected.author}</span>
                   </div>
                   <div className="flex gap-1 flex-wrap">
                     {selected.relatedFactions.map((f) => (
@@ -168,7 +168,7 @@ export default function FilesPage() {
                   selected.isLocked && !isUnlocked && "blur-sm select-none"
                 )}
               >
-                <pre className="text-[12px] font-code text-muted-foreground/80 leading-relaxed whitespace-pre-wrap">
+                <pre className="text-[13px] font-code text-muted-foreground leading-relaxed whitespace-pre-wrap">
                   {selected.content}
                 </pre>
               </div>

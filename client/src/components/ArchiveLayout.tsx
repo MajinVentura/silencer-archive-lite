@@ -19,7 +19,6 @@ import {
   X,
   ChevronRight,
   Radio,
-  Shield,
 } from "lucide-react";
 
 const navItems = [
@@ -39,17 +38,6 @@ const factionNavItems = agencies.map((a) => ({
   color: a.color,
   id: a.id,
 }));
-
-function ClassificationBanner() {
-  return (
-    <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-950/30 border-b border-amber-900/30">
-      <Shield className="w-3 h-3 text-amber-400 flex-shrink-0" />
-      <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-amber-400/80 font-code">
-        RESTRICTED — ANALYST CLEARANCE REQUIRED
-      </span>
-    </div>
-  );
-}
 
 function SidebarSection({ title }: { title: string }) {
   return (
@@ -157,8 +145,6 @@ export default function ArchiveLayout({ children }: ArchiveLayoutProps) {
           </div>
         </div>
       </div>
-
-      <ClassificationBanner />
 
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto py-2">

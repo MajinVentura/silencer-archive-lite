@@ -30,7 +30,7 @@ export default function ConspiraciesPage() {
         <h1 className="text-2xl font-bold font-display tracking-tight text-foreground mb-1">
           OPEN CONSPIRACY THREADS
         </h1>
-        <p className="text-[12px] font-code text-muted-foreground/60">
+        <p className="text-[13px] font-code text-muted-foreground/80">
           Intelligence threads that have not been resolved. Some may be disinformation. Some may be the most important things in this archive.
         </p>
       </div>
@@ -108,7 +108,7 @@ export default function ConspiraciesPage() {
                   <h3 className="text-[13px] font-display font-bold text-foreground/90">
                     {conspiracy.title}
                   </h3>
-                  <p className="text-[11px] font-code text-muted-foreground/65 leading-relaxed mt-1">
+                  <p className="text-[13px] font-code text-muted-foreground/85 leading-relaxed mt-1">
                     {conspiracy.summary}
                   </p>
                   {conspiracy.factions.length > 0 && (
@@ -131,7 +131,7 @@ export default function ConspiraciesPage() {
                     </div>
                     <ul className="space-y-1.5">
                       {conspiracy.evidence.map((ev, i) => (
-                        <li key={i} className="flex gap-2 text-[11px] font-code text-muted-foreground/70 leading-relaxed">
+                        <li key={i} className="flex gap-2 text-[13px] font-code text-muted-foreground/85 leading-relaxed">
                           <span className="text-muted-foreground/30 flex-shrink-0">•</span>
                           {ev}
                         </li>
