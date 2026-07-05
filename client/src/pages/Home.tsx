@@ -158,10 +158,11 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { src: "/manus-storage/S1L.terminals&civilians_3bb97844.webp", caption: "PUBLIC TERMINAL CORRIDOR — SECTOR 4" },
-            { src: "/manus-storage/S1L.Insidebase4_17f40a7f.webp", caption: "NOXIS SAFE HOUSE — CYPHER LOCK ACTIVE" },
-            { src: "/manus-storage/S1L.Robot&LaserCannon_6d56e8f1.webp", caption: "GOVERNMENT DEFENSE UNIT — GRID 7" },
-            { src: "/manus-storage/S1L.Flamer1_34bd8335.webp", caption: "INCENDIARY ENGAGEMENT — SECTOR 2" },
+            { src: "/manus-storage/game-modern-corridor_b5e75b7d.png", caption: "PUBLIC TERMINAL CORRIDOR — SECTOR 4" },
+            { src: "/manus-storage/game-modern-hacking_08438222.png", caption: "NOXIS SAFE HOUSE — CYPHER LOCK ACTIVE" },
+            { src: "/manus-storage/game-modern-robot_063491bc.png", caption: "GOVERNMENT DEFENSE UNIT — GRID 7" },
+            { src: "/manus-storage/game-modern-flamer_0d8a3cec.png", caption: "INCENDIARY ENGAGEMENT — SECTOR 2" },
+            { src: "/manus-storage/game-modern-base_bf458508.png", caption: "UNDERGROUND AGENCY BASE — LEVEL 3" },
           ].map((img) => (
             <div key={img.caption} className="border border-border overflow-hidden group">
               <div className="overflow-hidden">

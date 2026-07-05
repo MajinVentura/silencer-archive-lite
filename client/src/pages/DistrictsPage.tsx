@@ -1,122 +1,166 @@
 // SILENCER: THE ARSIA MONS ARCHIVE — Districts Page
+// Full-width master-detail layout with atmospheric images
 import { useState } from "react";
 import { districts } from "@/data/lore";
 import { ClassificationStamp, LoreCard, AnalystNote, StatRow } from "@/components/ArchiveComponents";
 import { cn } from "@/lib/utils";
 
+const districtImages: Record<string, string> = {
+  'dist-001': '/manus-storage/lore-habitation-ring_f1255c1a.png',
+  'dist-002': '/manus-storage/lore-underground-tunnels_15253d3f.png',
+  'dist-003': '/manus-storage/lore-satellite-array_57d85633.png',
+};
+
+const dangerColors = ['', 'text-green-400', 'text-yellow-400', 'text-orange-400', 'text-red-400', 'text-red-600'];
+
 export default function DistrictsPage() {
-  const [selectedId, setSelectedId] = useState<string | null>(districts[0]?.id || null);
-  const selected = districts.find((d) => d.id === selectedId);
+  const [selectedId, setSelectedId] = useState<string>(districts[0]?.id || '');
+  const selected = districts.find((d) => d.id === selectedId) || districts[0];
+  const img = selected ? districtImages[selected.id] : null;
 
   return (
-    <div className="min-h-full">
-      <div className="border-b border-border px-6 py-5 bg-card/50">
+    <div className="min-h-full w-full flex flex-col">
+      {/* Page header */}
+      <div className="border-b border-border px-8 py-6 bg-card/50 w-full flex-shrink-0">
         <div className="text-[9px] font-code text-muted-foreground/40 tracking-[0.2em] uppercase mb-1">
           ARSIA MONS ARCHIVE / DISTRICTS
         </div>
-        <h1 className="text-2xl font-bold font-display tracking-tight text-foreground mb-1">
+        <h1 className="text-3xl font-bold font-display tracking-tight text-foreground mb-2">
           COLONY DISTRICTS
         </h1>
-        <p className="text-[13px] font-code text-muted-foreground/80">
+        <p className="text-sm font-code text-muted-foreground/80">
           Geographic and administrative divisions of the Arsia Mons colony. Each district has its own power structure, population, and history of conflict.
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row" style={{ minHeight: "calc(100vh - 140px)" }}>
-        {/* District list */}
-        <div className="lg:w-64 flex-shrink-0 border-b lg:border-b-0 lg:border-r border-border overflow-y-auto">
-          {districts.map((district) => (
+      {/* Main content — full width split */}
+      <div className="flex flex-1" style={{ minHeight: "calc(100vh - 160px)" }}>
+        {/* Left: district list */}
+        <div className="w-64 flex-shrink-0 border-r border-border overflow-y-auto bg-card/20">
+          {districts.map((d) => (
             <button
-              key={district.id}
-              onClick={() => setSelectedId(district.id)}
+              key={d.id}
+              onClick={() => setSelectedId(d.id)}
               className={cn(
-                "w-full text-left px-4 py-3 border-b border-border/50 transition-colors",
-                selectedId === district.id ? "bg-accent/40" : "hover:bg-accent/20"
+                "w-full text-left px-4 py-4 border-b border-border/50 transition-all group",
+                selectedId === d.id
+                  ? "bg-blue-950/30 border-l-2 border-l-blue-500"
+                  : "hover:bg-accent/20 border-l-2 border-l-transparent"
               )}
             >
-              <div className="flex items-start gap-2">
-                <div
-                  className="w-1 flex-shrink-0 rounded-full mt-1"
-                  style={{
-                    backgroundColor: selectedId === district.id ? "#3b82f6" : "#3b82f620",
-                    minHeight: "24px",
-                  }}
-                />
-                <div>
-                  <div
-                    className="text-[11px] font-display font-bold tracking-wide"
-                    style={selectedId === district.id ? { color: "#3b82f6" } : {}}
-                  >
-                    {district.name}
-                  </div>
-                  <div className="text-[9px] font-code text-muted-foreground/40 tracking-wider uppercase mt-0.5">
-                    {district.sector}
-                  </div>
-                </div>
+              <div className="text-[12px] font-bold font-display tracking-wide text-foreground mb-0.5 group-hover:text-blue-400 transition-colors">
+                {d.name}
+              </div>
+              <div className="text-[10px] font-code text-muted-foreground/60 mb-2">
+                {d.sector}
+              </div>
+              <div className="flex items-center gap-2">
+                <ClassificationStamp classification={d.classification} />
+                <span className={cn("text-[9px] font-code font-bold", dangerColors[d.dangerLevel])}>
+                  THREAT {d.dangerLevel}/5
+                </span>
               </div>
             </button>
           ))}
         </div>
 
-        {/* District detail */}
-        <div className="flex-1 overflow-y-auto p-6">
-          {selected ? (
-            <div className="max-w-2xl space-y-5 animate-entry">
-              <div>
-                <div className="flex items-center gap-3 mb-2 flex-wrap">
-                  <ClassificationStamp classification={selected.classification} />
-                  <span className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase">
-                    {selected.sector}
-                  </span>
+        {/* Right: district detail — full width */}
+        {selected && (
+          <div className="flex-1 overflow-y-auto">
+            {/* Hero image */}
+            {img && (
+              <div className="relative h-72 w-full overflow-hidden">
+                <img
+                  src={img}
+                  alt={selected.name}
+                  className="w-full h-full object-cover opacity-65"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-background" />
+                <div className="absolute bottom-0 left-0 right-0 px-8 pb-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <ClassificationStamp classification={selected.classification} />
+                    <span className="text-[9px] font-code text-white/50 tracking-widest uppercase">
+                      {selected.sector}
+                    </span>
+                    <span className={cn("text-[9px] font-code font-bold", dangerColors[selected.dangerLevel])}>
+                      THREAT LEVEL {selected.dangerLevel}/5
+                    </span>
+                  </div>
+                  <h2 className="text-3xl font-bold font-display text-white tracking-tight drop-shadow-lg">
+                    {selected.name}
+                  </h2>
                 </div>
-                <h2 className="text-2xl font-bold font-display tracking-tight mb-1 text-foreground">
-                  {selected.name}
-                </h2>
               </div>
+            )}
 
-              {/* Stats */}
-              <div className="terminal-panel border border-border p-4">
-                <StatRow label="SECTOR" value={selected.sector} />
-                <StatRow label="CONTROLLED BY" value={selected.controlledBy.toUpperCase()} />
-                <StatRow label="DANGER LEVEL" value={`${selected.dangerLevel} / 5`} color={
-                  selected.dangerLevel >= 4 ? "#f87171" :
-                  selected.dangerLevel >= 3 ? "#fbbf24" : "#4ade80"
-                } />
-              </div>
-
-              {/* Description */}
-              <LoreCard title="DISTRICT RECORD" classification={selected.classification}>
-                {selected.description.split("\n\n").map((para, i) => (
-                  <p key={i} className="text-[13px] font-code text-muted-foreground leading-relaxed mb-3 last:mb-0">
-                    {para}
-                  </p>
-                ))}
-              </LoreCard>
-
-              {/* Expanded description */}
-              {selected.expandedDescription && (
-                <LoreCard title="EXPANDED INTELLIGENCE" classification="EXPANDED">
-                  {selected.expandedDescription.split("\n\n").map((para, i) => (
-                    <p key={i} className="text-[13px] font-code text-muted-foreground leading-relaxed mb-3 last:mb-0">
-                      {para}
-                    </p>
-                  ))}
-                </LoreCard>
+            {/* Content */}
+            <div className="px-8 py-6 animate-entry">
+              {!img && (
+                <div className="mb-5">
+                  <div className="flex items-center gap-3 mb-2">
+                    <ClassificationStamp classification={selected.classification} />
+                    <span className="text-[9px] font-code text-muted-foreground/50 tracking-widest uppercase">
+                      {selected.sector}
+                    </span>
+                  </div>
+                  <h2 className="text-3xl font-bold font-display text-foreground tracking-tight">
+                    {selected.name}
+                  </h2>
+                </div>
               )}
+
+              {/* Stats row */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div className="terminal-panel border border-border p-3">
+                  <div className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase mb-1">SECTOR</div>
+                  <div className="text-sm font-code text-foreground font-bold">{selected.sector}</div>
+                </div>
+                <div className="terminal-panel border border-border p-3">
+                  <div className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase mb-1">CONTROLLED BY</div>
+                  <div className="text-sm font-code text-foreground font-bold uppercase">
+                    {selected.controlledBy === 'gov' ? 'GOVERNMENT' :
+                     selected.controlledBy === 'contested' ? 'CONTESTED' :
+                     selected.controlledBy.toUpperCase()}
+                  </div>
+                </div>
+                <div className="terminal-panel border border-border p-3">
+                  <div className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase mb-1">THREAT LEVEL</div>
+                  <div className={cn("text-sm font-code font-bold", dangerColors[selected.dangerLevel])}>
+                    {selected.dangerLevel} / 5
+                  </div>
+                </div>
+                <div className="terminal-panel border border-border p-3">
+                  <div className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase mb-1">CLASSIFICATION</div>
+                  <div className="text-sm font-code text-foreground font-bold">{selected.classification}</div>
+                </div>
+              </div>
+
+              {/* Two-column layout for wider screens */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <LoreCard title="DISTRICT RECORD" classification={selected.classification}>
+                  <p className="text-sm font-code text-muted-foreground leading-relaxed">
+                    {selected.description}
+                  </p>
+                </LoreCard>
+
+                {selected.expandedDescription && (
+                  <LoreCard title="EXPANDED INTELLIGENCE" classification="EXPANDED">
+                    <p className="text-sm font-code text-muted-foreground leading-relaxed">
+                      {selected.expandedDescription}
+                    </p>
+                  </LoreCard>
+                )}
+              </div>
 
               {/* Known locations */}
               {selected.knownLocations.length > 0 && (
-                <div>
-                  <div className="text-[9px] font-code text-muted-foreground/40 tracking-[0.2em] uppercase mb-3">
-                    KNOWN LOCATIONS
-                  </div>
-                  <div className="space-y-2">
-                    {selected.knownLocations.map((loc) => (
-                      <div key={loc} className="flex gap-3 px-4 py-3 border border-border/50 bg-card/30">
-                        <div className="w-0.5 flex-shrink-0 rounded-full bg-border" />
-                        <p className="text-[13px] font-code text-muted-foreground/80 leading-relaxed">
-                          {loc}
-                        </p>
+                <div className="terminal-panel border border-border p-5 mb-6">
+                  <div className="text-[9px] font-code text-muted-foreground/40 tracking-widest uppercase mb-3">KNOWN LOCATIONS</div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    {selected.knownLocations.map((loc, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <span className="text-blue-500/50 mt-0.5 flex-shrink-0">▸</span>
+                        <span className="text-sm font-code text-muted-foreground">{loc}</span>
                       </div>
                     ))}
                   </div>
@@ -126,24 +170,18 @@ export default function DistrictsPage() {
               {/* Rumors */}
               {selected.rumors.length > 0 && (
                 <LoreCard title="DISTRICT RUMORS — UNVERIFIED" classification="RUMOR">
-                  <ul className="space-y-2">
+                  <div className="space-y-3">
                     {selected.rumors.map((r, i) => (
-                      <li key={i} className="text-[13px] font-code text-muted-foreground leading-relaxed italic">
-                        • {r}
-                      </li>
+                      <p key={i} className="text-sm font-code text-muted-foreground/85 leading-relaxed italic border-l-2 border-yellow-900/40 pl-3">
+                        {r}
+                      </p>
                     ))}
-                  </ul>
+                  </div>
                 </LoreCard>
               )}
             </div>
-          ) : (
-            <div className="flex items-center justify-center h-full">
-              <div className="text-[11px] font-code text-muted-foreground/30 tracking-widest uppercase">
-                SELECT A DISTRICT
-              </div>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

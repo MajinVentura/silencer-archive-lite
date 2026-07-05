@@ -41,13 +41,13 @@ export default function AgencyPage() {
     );
   }
 
-  // Map agency IDs to their uploaded bio screenshots
-  const agencyBioScreenshots: Record<string, string> = {
-    noxis: "/manus-storage/AgencyBio-Noxis_60c9c037.png",
-    static: "/manus-storage/AgencyBio-Static_e7eacac6.png",
-    caliber: "/manus-storage/AgencyBio-Caliber_a5990ad0.png",
-    lazarus: "/manus-storage/AgencyBio-Lazarus_1114196c.png",
-    blackrose: "/manus-storage/AgencyBio-BlackRose_0ac9c2d1.png",
+  // Agency hero images — atmospheric concept art
+  const agencyHeroImages: Record<string, string> = {
+    noxis: '/manus-storage/lore-oxygen-plant_2b32dfc6.png',
+    static: '/manus-storage/lore-satellite-array_57d85633.png',
+    caliber: '/manus-storage/lore-habitation-ring_f1255c1a.png',
+    lazarus: '/manus-storage/lore-underground-tunnels_15253d3f.png',
+    blackrose: '/manus-storage/lore-arsia-mons-surface_9648b909.png',
   };
 
   const tabs: { id: Tab; label: string }[] = [
@@ -65,7 +65,7 @@ export default function AgencyPage() {
   };
 
   return (
-    <div className="min-h-full">
+    <div className="min-h-full w-full">
       {/* Faction-tinted header */}
       <div
         className="border-b border-border"
@@ -73,7 +73,7 @@ export default function AgencyPage() {
           background: `linear-gradient(135deg, ${agency.colorDim}15 0%, oklch(0.09 0.012 240) 60%)`,
         }}
       >
-        <div className="px-6 py-5">
+        <div className="px-8 py-6">
           <Link href="/">
             <div className="flex items-center gap-1 text-[10px] font-code text-muted-foreground/40 hover:text-muted-foreground/70 cursor-pointer mb-4 transition-colors">
               <ChevronLeft className="w-3 h-3" />
@@ -164,10 +164,10 @@ export default function AgencyPage() {
       </div>
 
       {/* Tab content */}
-      <div className="p-6">
+      <div className="px-8 py-6 w-full">
         {/* OVERVIEW TAB */}
         {activeTab === "overview" && (
-          <div className="space-y-5 max-w-4xl animate-entry">
+          <div className="space-y-5 w-full animate-entry">
             {/* Canon bio */}
             <LoreCard
               title="OFFICIAL DOSSIER — CANON RECORD"
@@ -259,21 +259,21 @@ export default function AgencyPage() {
               </div>
             </div>
 
-            {/* Canon Bio Screenshot */}
-            {agencyBioScreenshots[agency.id] && (
+            {/* Atmospheric image for this agency */}
+            {agencyHeroImages[agency.id] && (
               <div>
-                <SectionDivider label="ORIGINAL GAME RECORD — CANON ARTIFACT" />
-                <div className="border border-border overflow-hidden">
+                <SectionDivider label="FIELD INTELLIGENCE — VISUAL RECORD" />
+                <div className="relative overflow-hidden border border-border" style={{ borderColor: `${agency.color}30` }}>
                   <img
-                    src={agencyBioScreenshots[agency.id]}
-                    alt={`${agency.name} agency bio screen`}
-                    className="w-full max-w-lg object-cover opacity-90"
+                    src={agencyHeroImages[agency.id]}
+                    alt={`${agency.name} field intelligence`}
+                    className="w-full h-56 object-cover opacity-60"
                   />
-                  <div className="px-3 py-2 bg-card/80 flex items-center justify-between">
-                    <div className="text-[9px] font-code text-muted-foreground/40 tracking-wider">
-                      IN-GAME AGENCY SELECTION SCREEN — SILENCER v0110 — WON.NET BETA
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
+                  <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-gradient-to-t from-background/90 to-transparent">
+                    <div className="text-[9px] font-code tracking-wider" style={{ color: `${agency.color}80` }}>
+                      ARSIA MONS COLONY — {agency.name.toUpperCase()} OPERATIONAL ZONE — VISUAL INTELLIGENCE
                     </div>
-                    <ClassificationStamp classification="CANON" />
                   </div>
                 </div>
               </div>
@@ -298,7 +298,7 @@ export default function AgencyPage() {
 
         {/* OPERATIVES TAB */}
         {activeTab === "operatives" && (
-          <div className="space-y-4 max-w-3xl animate-entry">
+          <div className="space-y-4 w-full animate-entry">
             <div className="text-[13px] font-code text-muted-foreground/80 leading-relaxed mb-4">
               The following operative records were recovered from intercepted intelligence files. Identities are codename-only. Real identities are unknown or classified.
             </div>
@@ -342,7 +342,7 @@ export default function AgencyPage() {
 
         {/* RELATIONSHIPS TAB */}
         {activeTab === "relationships" && (
-          <div className="space-y-3 max-w-3xl animate-entry">
+          <div className="space-y-3 w-full animate-entry">
             <div className="text-[13px] font-code text-muted-foreground/80 leading-relaxed mb-4">
               Inter-agency relationships as assessed by archive analysts. Status designations are approximate — all agency relationships are subject to change without notice.
             </div>
@@ -375,7 +375,7 @@ export default function AgencyPage() {
 
         {/* SECRETS TAB */}
         {activeTab === "secrets" && (
-          <div className="max-w-3xl animate-entry">
+          <div className="w-full animate-entry">
             <div className="text-[13px] font-code text-muted-foreground/80 leading-relaxed mb-4">
               The following record contains intelligence that the agency in question has actively suppressed. These are expanded lore entries — not real access restrictions.
             </div>
@@ -414,7 +414,7 @@ export default function AgencyPage() {
 
         {/* EQUIPMENT TAB */}
         {activeTab === "equipment" && (
-          <div className="space-y-4 max-w-3xl animate-entry">
+          <div className="space-y-4 w-full animate-entry">
             <div className="text-[13px] font-code text-muted-foreground/80 leading-relaxed mb-4">
               Equipment records for {agency.name} operatives. Agency-exclusive items are marked. General equipment available to all agencies is documented in the Equipment Registry.
             </div>
