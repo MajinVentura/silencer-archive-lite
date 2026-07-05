@@ -1,7 +1,16 @@
+/* ============================================================
+   SILENCER: THE ARSIA MONS ARCHIVE
+   Design: Dark Faction Terminal (Approach C)
+   Typography: Space Grotesk (display) + IBM Plex Mono (body/lore) + JetBrains Mono (code/ids)
+   Color Philosophy: Near-void base with faction chromatic identity
+   ============================================================ */
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+/* Google Fonts loaded in index.html */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -40,118 +49,136 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Faction colors */
+  --color-noxis: #3b82f6;
+  --color-noxis-dim: #1d4ed8;
+  --color-static: #06b6d4;
+  --color-static-dim: #0891b2;
+  --color-caliber: #d97706;
+  --color-caliber-dim: #b45309;
+  --color-lazarus: #7c3aed;
+  --color-lazarus-dim: #6d28d9;
+  --color-blackrose: #dc2626;
+  --color-blackrose-dim: #b91c1c;
+  --color-gov: #4b5563;
+  --color-gov-dim: #374151;
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
-}
+  --radius: 0.25rem;
+  
+  /* Base terminal palette */
+  --background: oklch(0.08 0.01 240);
+  --foreground: oklch(0.82 0.01 220);
+  --card: oklch(0.11 0.012 240);
+  --card-foreground: oklch(0.82 0.01 220);
+  --popover: oklch(0.11 0.012 240);
+  --popover-foreground: oklch(0.82 0.01 220);
+  --primary: oklch(0.60 0.18 240);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.15 0.01 240);
+  --secondary-foreground: oklch(0.70 0.01 220);
+  --muted: oklch(0.14 0.01 240);
+  --muted-foreground: oklch(0.50 0.01 220);
+  --accent: oklch(0.16 0.015 240);
+  --accent-foreground: oklch(0.82 0.01 220);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.20 0.015 240);
+  --input: oklch(0.18 0.012 240);
+  --ring: oklch(0.60 0.18 240);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.09 0.012 240);
+  --sidebar-foreground: oklch(0.75 0.01 220);
+  --sidebar-primary: oklch(0.60 0.18 240);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.14 0.012 240);
+  --sidebar-accent-foreground: oklch(0.82 0.01 220);
+  --sidebar-border: oklch(0.18 0.015 240);
+  --sidebar-ring: oklch(0.60 0.18 240);
+  
+  /* Charts */
+  --chart-1: oklch(0.60 0.18 240);
+  --chart-2: oklch(0.65 0.18 200);
+  --chart-3: oklch(0.65 0.18 280);
+  --chart-4: oklch(0.65 0.18 50);
+  --chart-5: oklch(0.55 0.22 25);
 
-.dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  /* Custom terminal variables */
+  --scanline-opacity: 0.03;
+  --terminal-glow: 0 0 20px rgba(59, 130, 246, 0.08);
+  --ease-out-snappy: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-sharp: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', 'Space Grotesk', system-ui, sans-serif;
+    background-color: oklch(0.08 0.01 240);
+    /* Subtle scanline texture */
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+    min-height: 100vh;
   }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.10 0.01 240);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.25 0.015 240);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.35 0.02 240);
+  }
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
+  a[href] {
     @apply cursor-pointer;
+  }
+
+  /* Typography classes */
+  .font-display {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+  
+  .font-mono-lore {
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+  
+  .font-code {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
   }
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -162,16 +189,253 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1400px;
+    }
+  }
+
+  /* ============================================================
+     TERMINAL UI COMPONENTS
+     ============================================================ */
+
+  /* Classification stamps */
+  .stamp-canon {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    color: #4ade80;
+    border: 1px solid #4ade80;
+    background: rgba(74, 222, 128, 0.08);
+  }
+  
+  .stamp-expanded {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    color: #60a5fa;
+    border: 1px solid #60a5fa;
+    background: rgba(96, 165, 250, 0.08);
+  }
+  
+  .stamp-classified {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    color: #fbbf24;
+    border: 1px solid #fbbf24;
+    background: rgba(251, 191, 36, 0.08);
+  }
+  
+  .stamp-redacted {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    color: #f87171;
+    border: 1px solid #f87171;
+    background: rgba(248, 113, 113, 0.08);
+  }
+  
+  .stamp-rumor {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    color: #a78bfa;
+    border: 1px solid #a78bfa;
+    background: rgba(167, 139, 250, 0.08);
+  }
+
+  /* Faction accent cards */
+  .faction-card {
+    @apply relative border border-border bg-card;
+    border-left-width: 3px;
+    transition: background-color 200ms var(--ease-out-snappy), border-color 200ms var(--ease-out-snappy);
+  }
+
+  .faction-card-noxis {
+    border-left-color: #3b82f6;
+  }
+  .faction-card-noxis:hover {
+    background-color: rgba(59, 130, 246, 0.04);
+  }
+
+  .faction-card-static {
+    border-left-color: #06b6d4;
+  }
+  .faction-card-static:hover {
+    background-color: rgba(6, 182, 212, 0.04);
+  }
+
+  .faction-card-caliber {
+    border-left-color: #d97706;
+  }
+  .faction-card-caliber:hover {
+    background-color: rgba(217, 119, 6, 0.04);
+  }
+
+  .faction-card-lazarus {
+    border-left-color: #7c3aed;
+  }
+  .faction-card-lazarus:hover {
+    background-color: rgba(124, 58, 237, 0.04);
+  }
+
+  .faction-card-blackrose {
+    border-left-color: #dc2626;
+  }
+  .faction-card-blackrose:hover {
+    background-color: rgba(220, 38, 38, 0.04);
+  }
+
+  .faction-card-gov {
+    border-left-color: #4b5563;
+  }
+  .faction-card-gov:hover {
+    background-color: rgba(75, 85, 99, 0.04);
+  }
+
+  /* Terminal text effects */
+  .text-terminal {
+    font-family: 'IBM Plex Mono', monospace;
+    color: oklch(0.75 0.01 220);
+    line-height: 1.7;
+  }
+
+  .text-redacted {
+    background-color: oklch(0.75 0.01 220);
+    color: transparent;
+    user-select: none;
+    border-radius: 2px;
+  }
+
+  .text-redacted:hover {
+    background-color: transparent;
+    color: oklch(0.75 0.01 220);
+    transition: all 300ms;
+  }
+
+  /* Glowing text for faction names */
+  .glow-noxis { text-shadow: 0 0 12px rgba(59, 130, 246, 0.6); }
+  .glow-static { text-shadow: 0 0 12px rgba(6, 182, 212, 0.6); }
+  .glow-caliber { text-shadow: 0 0 12px rgba(217, 119, 6, 0.6); }
+  .glow-lazarus { text-shadow: 0 0 12px rgba(124, 58, 237, 0.6); }
+  .glow-blackrose { text-shadow: 0 0 12px rgba(220, 38, 38, 0.6); }
+
+  /* Terminal panel */
+  .terminal-panel {
+    @apply border border-border bg-card;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 4px 24px rgba(0,0,0,0.4);
+  }
+
+  /* Divider with label */
+  .section-divider {
+    @apply flex items-center gap-3 my-6;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    @apply flex-1 border-t border-border;
+  }
+  .section-divider span {
+    @apply text-[10px] font-bold tracking-widest uppercase text-muted-foreground;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Animated entry */
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-entry {
+    animation: fadeSlideUp 200ms var(--ease-out-snappy) both;
+  }
+
+  .animate-entry-delay-1 { animation-delay: 40ms; }
+  .animate-entry-delay-2 { animation-delay: 80ms; }
+  .animate-entry-delay-3 { animation-delay: 120ms; }
+  .animate-entry-delay-4 { animation-delay: 160ms; }
+  .animate-entry-delay-5 { animation-delay: 200ms; }
+
+  /* Typewriter cursor */
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  .cursor-blink::after {
+    content: '█';
+    animation: blink 1s step-end infinite;
+    color: #3b82f6;
+    font-size: 0.8em;
+  }
+
+  /* Decrypt animation */
+  @keyframes decrypt {
+    0% { filter: blur(4px); opacity: 0.3; }
+    100% { filter: blur(0); opacity: 1; }
+  }
+  .animate-decrypt {
+    animation: decrypt 300ms var(--ease-out-snappy) both;
+  }
+
+  /* Scanline overlay for panels */
+  .scanlines {
+    position: relative;
+  }
+  .scanlines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.04) 2px,
+      rgba(0, 0, 0, 0.04) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Active nav item */
+  .nav-item-active {
+    @apply text-foreground;
+    position: relative;
+  }
+  .nav-item-active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: currentColor;
+  }
+
+  /* Hover scale for interactive elements */
+  .interactive-scale {
+    transition: transform 160ms var(--ease-out-snappy);
+  }
+  .interactive-scale:active {
+    transform: scale(0.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-entry,
+    .animate-decrypt,
+    .cursor-blink::after {
+      animation: none;
+    }
+    .interactive-scale:active {
+      transform: none;
     }
   }
 }
