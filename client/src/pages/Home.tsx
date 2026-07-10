@@ -105,7 +105,7 @@ export default function Home() {
         className="relative border-b border-border overflow-hidden"
         style={{
           background: `linear-gradient(180deg, oklch(0.09 0.015 240) 0%, oklch(0.08 0.01 240) 100%)`,
-          backgroundImage: `url(/manus-storage/hero-terminal-bg_95950a83.png)`,
+          backgroundImage: `url(/assets/hero-terminal-bg_95950a83.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -158,11 +158,11 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { src: "/manus-storage/game-modern-corridor_b5e75b7d.png", caption: "PUBLIC TERMINAL CORRIDOR — SECTOR 4" },
-            { src: "/manus-storage/game-modern-hacking_08438222.png", caption: "NOXIS SAFE HOUSE — CYPHER LOCK ACTIVE" },
-            { src: "/manus-storage/game-modern-robot_063491bc.png", caption: "GOVERNMENT DEFENSE UNIT — GRID 7" },
-            { src: "/manus-storage/game-modern-flamer_0d8a3cec.png", caption: "INCENDIARY ENGAGEMENT — SECTOR 2" },
-            { src: "/manus-storage/game-modern-base_bf458508.png", caption: "UNDERGROUND AGENCY BASE — LEVEL 3" },
+            { src: "/assets/game-modern-corridor_b5e75b7d.png", caption: "PUBLIC TERMINAL CORRIDOR — SECTOR 4" },
+            { src: "/assets/game-modern-hacking_08438222.png", caption: "NOXIS SAFE HOUSE — CYPHER LOCK ACTIVE" },
+            { src: "/assets/game-modern-robot_063491bc.png", caption: "GOVERNMENT DEFENSE UNIT — GRID 7" },
+            { src: "/assets/game-modern-flamer_0d8a3cec.png", caption: "INCENDIARY ENGAGEMENT — SECTOR 2" },
+            { src: "/assets/game-modern-base_bf458508.png", caption: "UNDERGROUND AGENCY BASE — LEVEL 3" },
           ].map((img) => (
             <div key={img.caption} className="border border-border overflow-hidden group">
               <div className="overflow-hidden">
@@ -292,7 +292,7 @@ export default function Home() {
           {/* Mars surface image */}
           <div className="border border-border overflow-hidden">
             <img
-              src="/manus-storage/mars-surface_81e2b867.png"
+              src="/assets/mars-surface_81e2b867.png"
               alt="Arsia Mons surface"
               className="w-full h-32 object-cover opacity-60"
             />

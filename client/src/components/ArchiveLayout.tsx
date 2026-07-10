@@ -131,7 +131,7 @@ export default function ArchiveLayout({ children }: ArchiveLayoutProps) {
       <div className="flex items-center gap-3 px-4 py-4 border-b border-border">
         <div className="w-8 h-8 flex-shrink-0 bg-blue-950/50 rounded flex items-center justify-center">
           <img
-            src="/manus-storage/silencer-logo_703dba5e.png"
+            src="/assets/silencer-logo_703dba5e.png"
             alt="Silencer Archive"
             className="w-6 h-6 object-contain opacity-90"
           />
@@ -239,7 +239,7 @@ export default function ArchiveLayout({ children }: ArchiveLayoutProps) {
           </button>
           <div className="flex items-center gap-2">
             <img
-              src="/manus-storage/silencer-logo_703dba5e.png"
+              src="/assets/silencer-logo_703dba5e.png"
               alt=""
               className="w-5 h-5 object-contain opacity-80"
             />

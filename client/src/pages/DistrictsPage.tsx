@@ -6,9 +6,9 @@ import { ClassificationStamp, LoreCard, AnalystNote, StatRow } from "@/component
 import { cn } from "@/lib/utils";
 
 const districtImages: Record<string, string> = {
-  'dist-001': '/manus-storage/lore-habitation-ring_f1255c1a.png',
-  'dist-002': '/manus-storage/lore-underground-tunnels_15253d3f.png',
-  'dist-003': '/manus-storage/lore-satellite-array_57d85633.png',
+  'dist-001': '/assets/lore-habitation-ring_f1255c1a.png',
+  'dist-002': '/assets/lore-underground-tunnels_15253d3f.png',
+  'dist-003': '/assets/lore-satellite-array_57d85633.png',
 };
 
 const dangerColors = ['', 'text-green-400', 'text-yellow-400', 'text-orange-400', 'text-red-400', 'text-red-600'];

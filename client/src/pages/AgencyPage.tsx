@@ -43,11 +43,11 @@ export default function AgencyPage() {
 
   // Agency hero images — atmospheric concept art
   const agencyHeroImages: Record<string, string> = {
-    noxis: '/manus-storage/lore-oxygen-plant_2b32dfc6.png',
-    static: '/manus-storage/lore-satellite-array_57d85633.png',
-    caliber: '/manus-storage/lore-habitation-ring_f1255c1a.png',
-    lazarus: '/manus-storage/lore-underground-tunnels_15253d3f.png',
-    blackrose: '/manus-storage/lore-arsia-mons-surface_9648b909.png',
+    noxis: '/assets/lore-oxygen-plant_2b32dfc6.png',
+    static: '/assets/lore-satellite-array_57d85633.png',
+    caliber: '/assets/lore-habitation-ring_f1255c1a.png',
+    lazarus: '/assets/lore-underground-tunnels_15253d3f.png',
+    blackrose: '/assets/lore-arsia-mons-surface_9648b909.png',
   };
 
   const tabs: { id: Tab; label: string }[] = [

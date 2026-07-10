@@ -24,26 +24,26 @@ const typeLabels: Record<string, string> = {
 
 // Map equipment names to atmospheric images
 const equipmentImages: Record<string, string> = {
-  'Sporria-7 Lung Augmentation': '/manus-storage/lore-oxygen-plant_2b32dfc6.png',
-  'Atmospheric Processor Suit': '/manus-storage/lore-arsia-mons-surface_9648b909.png',
-  'Dead Signal Uplink Module': '/manus-storage/lore-satellite-array_57d85633.png',
-  'Cypher Lock Breaker': '/manus-storage/lore-satellite-array_57d85633.png',
-  'Social Engineering Kit': '/manus-storage/lore-habitation-ring_f1255c1a.png',
-  'Contact Ledger (Encrypted)': '/manus-storage/lore-habitation-ring_f1255c1a.png',
-  'Lazarus Serum (Partial Formula)': '/manus-storage/lore-underground-tunnels_15253d3f.png',
-  'Hollowhead Compound': '/manus-storage/lore-underground-tunnels_15253d3f.png',
-  'Thorn Pistol': '/manus-storage/lore-weapon-laser_d463ac86.png',
-  'Jetpack (Mk. III)': '/manus-storage/lore-weapon-jetpack_bee532ec.png',
-  'Incendiary Projector': '/manus-storage/lore-weapon-flamer_e09e46ba.png',
-  'Defense Laser (Mounted)': '/manus-storage/lore-weapon-laser_d463ac86.png',
+  'Sporria-7 Lung Augmentation': '/assets/lore-oxygen-plant_2b32dfc6.png',
+  'Atmospheric Processor Suit': '/assets/lore-arsia-mons-surface_9648b909.png',
+  'Dead Signal Uplink Module': '/assets/lore-satellite-array_57d85633.png',
+  'Cypher Lock Breaker': '/assets/lore-satellite-array_57d85633.png',
+  'Social Engineering Kit': '/assets/lore-habitation-ring_f1255c1a.png',
+  'Contact Ledger (Encrypted)': '/assets/lore-habitation-ring_f1255c1a.png',
+  'Lazarus Serum (Partial Formula)': '/assets/lore-underground-tunnels_15253d3f.png',
+  'Hollowhead Compound': '/assets/lore-underground-tunnels_15253d3f.png',
+  'Thorn Pistol': '/assets/lore-weapon-laser_d463ac86.png',
+  'Jetpack (Mk. III)': '/assets/lore-weapon-jetpack_bee532ec.png',
+  'Incendiary Projector': '/assets/lore-weapon-flamer_e09e46ba.png',
+  'Defense Laser (Mounted)': '/assets/lore-weapon-laser_d463ac86.png',
 };
 
 // Fallback images by type
 const typeImages: Record<string, string> = {
-  weapon: '/manus-storage/lore-weapon-laser_d463ac86.png',
-  tool: '/manus-storage/lore-satellite-array_57d85633.png',
-  enhancement: '/manus-storage/lore-oxygen-plant_2b32dfc6.png',
-  compound: '/manus-storage/lore-underground-tunnels_15253d3f.png',
+  weapon: '/assets/lore-weapon-laser_d463ac86.png',
+  tool: '/assets/lore-satellite-array_57d85633.png',
+  enhancement: '/assets/lore-oxygen-plant_2b32dfc6.png',
+  compound: '/assets/lore-underground-tunnels_15253d3f.png',
 };
 
 export default function WeaponsPage() {

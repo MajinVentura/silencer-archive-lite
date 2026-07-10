@@ -11,17 +11,17 @@ const eras = Array.from(erasSet);
 
 // Map timeline entry IDs to atmospheric images
 const timelineImages: Record<string, string> = {
-  'tl-001': '/manus-storage/lore-oxygen-plant_2b32dfc6.png',
-  'tl-002': '/manus-storage/lore-underground-tunnels_15253d3f.png',
-  'tl-003': '/manus-storage/lore-habitation-ring_f1255c1a.png',
-  'tl-004': '/manus-storage/lore-arsia-mons-surface_9648b909.png',
-  'tl-005': '/manus-storage/lore-oxygen-plant_2b32dfc6.png',
-  'tl-006': '/manus-storage/lore-habitation-ring_f1255c1a.png',
-  'tl-007': '/manus-storage/lore-satellite-array_57d85633.png',
-  'tl-008': '/manus-storage/lore-satellite-array_57d85633.png',
-  'tl-009': '/manus-storage/lore-underground-tunnels_15253d3f.png',
-  'tl-010': '/manus-storage/lore-satellite-array_57d85633.png',
-  'tl-011': '/manus-storage/lore-cleansing-protocol_10a85b67.png',
+  'tl-001': '/assets/lore-oxygen-plant_2b32dfc6.png',
+  'tl-002': '/assets/lore-underground-tunnels_15253d3f.png',
+  'tl-003': '/assets/lore-habitation-ring_f1255c1a.png',
+  'tl-004': '/assets/lore-arsia-mons-surface_9648b909.png',
+  'tl-005': '/assets/lore-oxygen-plant_2b32dfc6.png',
+  'tl-006': '/assets/lore-habitation-ring_f1255c1a.png',
+  'tl-007': '/assets/lore-satellite-array_57d85633.png',
+  'tl-008': '/assets/lore-satellite-array_57d85633.png',
+  'tl-009': '/assets/lore-underground-tunnels_15253d3f.png',
+  'tl-010': '/assets/lore-satellite-array_57d85633.png',
+  'tl-011': '/assets/lore-cleansing-protocol_10a85b67.png',
 };
 
 export default function TimelinePage() {
